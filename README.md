@@ -7,3 +7,15 @@ This is not official.
 1. Open every individual blog to scrape the list of posts.
 1. Make some simple tables and graphs.
 
+![](R/scrape-individual-blogs_files/figure-gfm/unnamed-chunk-16-1.png)
+
+![](R/scrape-individual-blogs_files/figure-gfm/unnamed-chunk-15-1.png)
+
+![](R/scrape-individual-blogs_files/figure-gfm/unnamed-chunk-8-1.png)
+
+![](R/scrape-individual-blogs_files/figure-gfm/unnamed-chunk-9-1.png)
+
+![](R/scrape-individual-blogs_files/figure-gfm/unnamed-chunk-6-1.png)
+
+![](R/scrape-individual-blogs_files/figure-gfm/unnamed-chunk-7-1.png)
+
