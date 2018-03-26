@@ -1,7 +1,7 @@
 Rough and ready blog.gov.uk trends
 ================
 nacnudus
-Sat Feb 17 22:46:03 2018
+Mon Mar 26 15:58:03 2018
 
 ``` r
 # Scrape the list of all blogs from https://www.blog.gov.uk/, and then scrape
@@ -14,9 +14,9 @@ library(tidyverse)
     ## ── Attaching packages ────────────────────────────────── tidyverse 1.2.1 ──
 
     ## ✔ ggplot2 2.2.1          ✔ purrr   0.2.4.9000
-    ## ✔ tibble  1.4.2          ✔ dplyr   0.7.4.9000
-    ## ✔ tidyr   0.8.0          ✔ stringr 1.2.0     
-    ## ✔ readr   1.1.1          ✔ forcats 0.2.0
+    ## ✔ tibble  1.4.2          ✔ dplyr   0.7.4.9002
+    ## ✔ tidyr   0.8.0.9000     ✔ stringr 1.3.0     
+    ## ✔ readr   1.2.0          ✔ forcats 0.2.0
 
     ## ── Conflicts ───────────────────────────────────── tidyverse_conflicts() ──
     ## ✖ dplyr::filter() masks stats::filter()
@@ -238,7 +238,7 @@ posts <- individual_posts
 range(posts$post_datetime)
 ```
 
-    ## [1] "2008-09-23 11:50:09 UTC" "2018-02-16 18:07:12 UTC"
+    ## [1] "2008-09-23 11:50:09 UTC" "2018-03-26 12:12:36 UTC"
 
 ``` r
 # [1] "2008-09-23 11:50:09 UTC" "2018-02-16 18:07:12 UTC"
@@ -254,7 +254,7 @@ blogs %>%
   count(department_names, sort = TRUE)
 ```
 
-    ## # A tibble: 96 x 2
+    ## # A tibble: 101 x 2
     ##    department_names                                          n
     ##    <chr>                                                 <int>
     ##  1 government-digital-service                               10
@@ -267,7 +267,7 @@ blogs %>%
     ##  8 department-for-environment-food-rural-affairs             4
     ##  9 driver-and-vehicle-standards-agency                       4
     ## 10 ministry-of-defence                                       4
-    ## # ... with 86 more rows
+    ## # ... with 91 more rows
 
 ## Number of blog posts by department.
 
@@ -280,20 +280,20 @@ posts %>%
   count(department_names, sort = TRUE)
 ```
 
-    ## # A tibble: 90 x 2
+    ## # A tibble: 95 x 2
     ##    department_names                             n
     ##    <chr>                                    <int>
-    ##  1 cabinet-office                            2498
-    ##  2 government-digital-service                2384
-    ##  3 civil-service                             2281
-    ##  4 public-health-england                     1484
-    ##  5 ministry-of-defence                       1317
+    ##  1 cabinet-office                            2533
+    ##  2 government-digital-service                2420
+    ##  3 civil-service                             2345
+    ##  4 public-health-england                     1528
+    ##  5 ministry-of-defence                       1345
     ##  6 Department for International Development   781
     ##  7 Government Digital Service                 655
     ##  8 UK Trade & Investment                      618
-    ##  9 environment-agency                         506
-    ## 10 department-of-health                       469
-    ## # ... with 80 more rows
+    ##  9 environment-agency                         519
+    ## 10 department-for-education                   482
+    ## # ... with 85 more rows
 
 ## Number of blog posts by blog. Posts on shared blogs count only once.
 
@@ -302,20 +302,20 @@ posts %>%
   count(blog_name, sort = TRUE)
 ```
 
-    ## # A tibble: 135 x 2
+    ## # A tibble: 137 x 2
     ##    blog_name               n
     ##    <chr>               <int>
-    ##  1 modmedia             1057
-    ##  2 civilservicelocal    1040
-    ##  3 gds                   874
-    ##  4 civilservice          835
+    ##  1 modmedia             1080
+    ##  2 civilservicelocal    1059
+    ##  3 gds                   882
+    ##  4 civilservice          855
     ##  5 dfid                  781
-    ##  6 publichealthmatters   703
+    ##  6 publichealthmatters   726
     ##  7 ukti                  618
-    ##  8 insidegovuk           574
-    ##  9 dfemedia              415
-    ## 10 phescreening          395
-    ## # ... with 125 more rows
+    ##  8 insidegovuk           579
+    ##  9 dfemedia              440
+    ## 10 phescreening          412
+    ## # ... with 127 more rows
 
 ## Number of posts timeseries by department, alphabetical.
 
@@ -564,9 +564,9 @@ bind_rows(gds, other) %>%
   geom_point()
 ```
 
-    ## Warning: Removed 550 rows containing missing values (geom_path).
+    ## Warning: Removed 552 rows containing missing values (geom_path).
 
-    ## Warning: Removed 692 rows containing missing values (geom_point).
+    ## Warning: Removed 695 rows containing missing values (geom_point).
 
 ![](scrape-individual-blogs_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
@@ -620,9 +620,9 @@ bind_rows(gds, other) %>%
   scale_size_manual(values = c(.5, 1))
 ```
 
-    ## Warning: Removed 478 rows containing missing values (geom_path).
+    ## Warning: Removed 420 rows containing missing values (geom_path).
 
-    ## Warning: Removed 527 rows containing missing values (geom_point).
+    ## Warning: Removed 467 rows containing missing values (geom_point).
 
 ![](scrape-individual-blogs_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
